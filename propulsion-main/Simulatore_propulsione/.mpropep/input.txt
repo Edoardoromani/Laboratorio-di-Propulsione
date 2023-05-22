@@ -1,0 +1,11 @@
+### AUTOMATICALLY GENERATED: EDIT AT OWN RISK ###
+## run on 2023/3/26  15:39:11
+
+## Propellant section
+Propellant
++1032 1000.000000 g
++657 15000.000000 g
+
+## Fixed enthalpy-pressure condition
+HP
++chamber_pressure 30.000000 bar 

@@ -1,0 +1,37 @@
+Cpropepshell provides a graphical userinterface to operate Cpropep under Windows. Install Cpropepshell in the same working directory as the cpropep.exe. Cpropepshell uses the cpropep.conf to locate the propellant data file - just as cpropep.exe does.
+
+Cpropep and related data files are not included in this downlaod. They are awailable at the rocket workbench website (http://rocketworkbench.sourceforge.net/). You will need both the cpropep-win-1.0.zip and the cpropep-data-1.0.zip.
+
+Cpropep is aimed at solving 4 problems:
+1) Adiabatic flame temperature
+2) Frosen equilibrium
+3) Shifting equilibrium
+4) Fixed pressure and temperature equilibrium
+
+Cpropepshell allows setting up calculations for all 4 types of problems. When only one problem is selected then the conditions for that particular problem is defined by the user. If more than one problem is solved at a time, the conditions are coupled in the following way:
+- Fixed pressure and temperature equilibrium takes its own independent values for chamber pressure and temperature.
+- Adiabatic flame temperature and frosen equilibrium and fixed equilibrium shares the same value of the chamber pressure.
+- Frosen equilibrium and shifting equilibrium shares the same exit conditions.
+--------------------------------------------------------------------------------------------
+History:
+
+Version 1.0 (Aug 20 2001):
+	Original version
+
+Version 1.01 (Aug 25 2001):
+	Validity checking error on exit conditions removed.
+	Missing fixed conditions error removed.
+
+Version 1.02 (Sep 09 2001):
+	Text corrected on GUI
+
+Version 1.02 (October 29 2001)
+	Added nested calculation, stepping of two independent variables.
+
+--------------------------------------------------------------------------------------------
+
+Cpropep is an open source project created and maintained by Antoine Lefebvre (antoine.lefebvre@polymtl.ca)
+
+Cpropepshell is free to use for anyone who finds it usefull. 
+
+Hans Olaf Toft

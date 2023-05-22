@@ -1,0 +1,64 @@
+Computing case 1
+Fixed pressure-temperature equilibrium
+
+Propellant composition
+Code  Name                                mol    Mass (g)  Composition
+1032  paraffin 0907                       0.0014 1.0000   50C  102H  
+1040  NITROUS OXIDE LIQUID (ITC)          0.1477 6.5000   2N  1O  
+Density :  19.851 g/cm^3
+4 different elements
+C  H  N  O  
+Total mass:  7.500000 g
+Enthalpy  :  1077.40 kJ/kg
+
+148 possible gazeous species
+3 possible condensed species
+
+                       CHAMBER
+Pressure (atm)   :      44.412
+Temperature (K)  :    2750.000
+H (kJ/kg)        :      31.454
+U (kJ/kg)        :    -858.916
+G (kJ/kg)        :  -26579.985
+S (kJ/(kg)(K)    :       9.677
+M (g/mol)        :      25.680
+(dLnV/dLnP)t     :    -1.00138
+(dLnV/dLnT)p     :     1.03190
+Cp (kJ/(kg)(K))  :     1.89642
+Cv (kJ/(kg)(K))  :     1.55214
+Cp/Cv            :     1.22181
+Gamma            :     1.22012
+Vson (m/s)       :  1042.28669
+
+
+Molar fractions
+
+CO                   1.6876e-001
+CO2                  7.4644e-002
+COOH                 1.0162e-006
+H                    2.5244e-003
+HCN                  7.6865e-007
+HCO                  1.9349e-006
+HNC                  1.1641e-007
+HNCO                 7.1283e-007
+HNO                  3.4602e-007
+HNO2                 1.7271e-008
+HO2                  2.1324e-007
+H2                   6.1078e-002
+HCHO,formaldehy      1.8947e-007
+HCOOH                5.2283e-007
+H2O                  1.8491e-001
+H2O2                 1.1594e-007
+N                    2.5429e-007
+NCO                  2.2113e-008
+NH                   3.2336e-007
+NH2                  7.0351e-007
+NH3                  4.0068e-006
+NO                   4.8285e-004
+NO2                  4.0360e-008
+N2                   5.0543e-001
+N2O                  1.4556e-007
+O                    5.3388e-005
+OH                   2.0462e-003
+O2                   6.5004e-005
+
