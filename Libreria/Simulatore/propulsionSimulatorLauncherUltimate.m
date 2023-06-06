@@ -99,7 +99,7 @@ rocket.tank.f_min = 0.05;     % percentuale di vapore minima in volume
 
 %% injection
 rocket.inj.Cd = 0.72;         % discharge coefficient dell'iniettore 
-rocket.inj.n_holes = 50;       % numero di fori iniettore 9
+rocket.inj.n_holes = 62;       % numero di fori iniettore 9
 rocket.inj.D_holes = 1.2e-3;  % [m] diametro dei fori 1.5
 rocket.inj.p_loss = 5e+5;   % [Pa] perdite nei condotti fluidici
 rocket.inj.model = "DYER-ISOH0";
@@ -114,7 +114,7 @@ rocket.cc.L_inj_slot = 12.5 * 1e-3; % [m] -> [mm] lunghezza slot iniettore
 rocket.cc.D_prechamber = 142* 1e-3; % [m] -> [mm] diametro precamera
 rocket.cc.L_prechamber = 37.5 * 1e-3; % [m] -> [mm] lunghezza precamera
 % grain geometry (cylinder)
-rocket.cc.L_grain = 265 * 1e-3; % [mm] -> [m] lunghezza grano
+rocket.cc.L_grain = 280 * 1e-3; % [mm] -> [m] lunghezza grano
 rocket.cc.D_port0 = 51 * 1e-3;  % [mm] -> [m] diametro iniziale interno del grano
 rocket.cc.D_ext = 142 * 1e-3; % [mm] -> [m] diametro esterno del grano
 % diaphragm geometry (cylinder)
@@ -147,17 +147,17 @@ rocket.nozzle.D_inh = 43.75 * 1e-3; % [m] -> [mm] diametro inibitore ugello
 rocket.nozzle.D_convergent = 43.75 * 1e-3;% [mm] -> [m] diametro convergente
 rocket.nozzle.L_convergent = 22.5 * 1e-3;% [mm] -> [m] lunghezza convergente
 % nozzle throat geometry (cylinder)
-rocket.nozzle.D_throat0 = 25 * 1e-3; % [mm] -> [m] diametro iniziale di gola
+rocket.nozzle.D_throat0 = 28 * 1e-3; % [mm] -> [m] diametro iniziale di gola
 rocket.nozzle.L_throat = 9.75 * 1e-3; % [mm] -> [m] lunghezza di gola
 % nozzle divergent geometry (truncated cone)
 rocket.nozzle.eps0 = 6.65; % rapporto di espansione iniziale
 rocket.nozzle.L_divergent = 40 * 1e-3; % [mm] -> [m] lunghezza divergente
 
 rocket.nozzle.eta_Cf = 0.97;        % efficienza sul Cf
-rocket.nozzle.rho_graphite = 1820;  % [kg/m^3] densità grafite dell'ugello
-rocket.nozzle.onsetTime = 0;        % [s] tempo che la gola ci mette a
+rocket.nozzle.rho_graphite = 2240;  % [kg/m^3] densità grafite dell'ugello
+rocket.nozzle.onsetTime = 10;        % [s] tempo che la gola ci mette a
                                     % raggiungere la temperatura di ablazione
-rocket.nozzle.erosionModel = -1;    % modello di erosione da usare (-1 per
+rocket.nozzle.erosionModel = 4;    % modello di erosione da usare (-1 per
                                     % non considerare l'erosione)
 
 if opts.batchCalculation

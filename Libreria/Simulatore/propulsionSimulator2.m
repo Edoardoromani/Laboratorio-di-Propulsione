@@ -77,11 +77,11 @@ function out = propulsionSimulator2(rocket,env,tSpan)
     % solve the problem (for big and complicated systems explicit method is
     % better)
 
-    [t,y] = solveOde(@(t,Y) propulsiveSystem(t,Y,rocket,env),'RK45_A',tSpan,Y0,...
-        "breakevent", breakEvent,'abstol',inf,'reltol',1e-6);
-%     op.RelTol = 1e-6;
-%     op.Events = breakEvent;
-%     [t,y] = ode45(@(t,Y) propulsiveSystem(t,Y,rocket,env),tSpan,Y0,op);
+%     [t,y] = solveOde(@(t,Y) propulsiveSystem(t,Y,rocket,env),'RK45_A',tSpan,Y0,...
+%         "breakevent", breakEvent,'abstol',inf,'reltol',1e-6);
+    op.RelTol = 1e-6;
+    op.Events = breakEvent;
+    [t,y] = ode45(@(t,Y) propulsiveSystem(t,Y,rocket,env),tSpan,Y0,op);
     
     % extract the solution undersampling to reduce data weight
     Idx = 1:5:length(t);
