@@ -1,10 +1,10 @@
-% CALCOLO SPESSORE SERBATOIO N2O IN COMPOSITO
+% CALCOLO SPESSORE SERBATOIO N2O IN ALLUMINIO
 % Thrust2 project - Laboratorio di propulsione
 % federicobortolato
 
 clear all
 close all
-clc
+% clc
 
 %% Tank Characteristics
 
@@ -17,7 +17,7 @@ metal.vol = 0.03;   % Volume serbatoio [m^3]
 p = 6e6;       % Pressione interna serbatoio prevista (Pa)
 d = 150;        % Diametro (esterno) serbatoio (mm)
 
-%% COMPARISON WITH FULL ALUMINUM VESSEL
+%% FULL ALUMINUM VESSEL
 
 % export metal vessel design
 fprintf("METAL VESSEL COMPUTATIONS\n")
@@ -34,7 +34,7 @@ metal.t1 = d/2*p*metal.FoS/(metal.Ys+p*metal.FoS);                  % [m] Classi
 
 metal.t2 = d/2*p*metal.FoS/(metal.Ys*E+(metal.FoS-0.6)*p);          % [m] Circumferential Stress (Longitudinal Joints)
 
-metal.t3 = d/2*p*metal.FoS/(2*metal.Ys*E+(0.4+metal.FoS)*p);        % [m] Longitudinal Stress (Circumferential Joints)
+metal.t3 = d/2*p*metal.FoS/(2*metal.Ys*E+(0.4+metal.FoS)*p);        % [m] Longitudinal Stress (Circumferential Joints) 
 
 metal.ts = d/2*p*metal.FoS/(2*metal.Ys*E+(metal.FoS-0.2)*p);        % [m] Spherical Shells - Hemispherical Heads
 
@@ -43,7 +43,7 @@ metal.tf = d/2*sqrt(metal.C*p)/(sqrt(metal.Ys*E)+sqrt(metal.C*p));  % [m] Flat H
 %% Composition
 
 %   user input ----------
-metal.tc = metal.t3;
+metal.tc = metal.t1;
 metal.th = metal.ts;
 % -----------------------
 
@@ -72,15 +72,18 @@ switch metal.th
         metal.cyl_intv = ((d/2)^(2)-(d/2-metal.tc)^2)*pi*metal.cyl_len; % [m^(3)]   internal volume of cylinder
         metal.head_intv = 4/3*pi*((d/2)^(3)-(d/2-metal.th)^3);          % [m^(3)]   internal volume of heads
         metal.mass = (metal.cyl_intv+metal.head_intv)*metal.rho;        % [kg]      tank mass
+        metal.length = metal.cyl_len + d;                               % [m]       tank tot length
     case metal.tf
         metal.cyl_len = metal.vol/((d/2-metal.tc)^2*pi);                % [m]       Cylinder length
         metal.cyl_intv = ((d/2)^(2)-(d/2-metal.tc)^2)*pi*metal.cyl_len; % [m^(3)]   internal volume of cylinder
         metal.head_intv = d^2*pi*metal.tf;                              % [m^(3)]   internal volume of heads
         metal.mass = (metal.cyl_intv+metal.head_intv)*metal.rho;        % [kg]      tank mass
+        metal.length = metal.cyl_len + 2*metal.th;                      % [m]       tank tot length
 end
 
 %%  Printing Results 
-
+fprintf("Spessore  cyl: %2.4f mm\n",metal.tc*1000)
+fprintf("Spessore head: %2.4f mm\n",metal.th*1000)
 fprintf("Peso      Tot: %2.4f Kg\n",metal.mass)
 fprintf("-------------------------\n\n")
-
+metal
