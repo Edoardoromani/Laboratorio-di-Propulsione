@@ -87,7 +87,8 @@ E = 0.65; % Efficienza ASME: TABLE UW-12 (2)(c) -> single-welded butt joint with
 %% Thickness of the tank calculated with the small thickness approximation
 
 metal.t1 = d/2*p*metal.FoS/metal.Ys; % [m]
-metal.t2 = d/2*p*metal.FoS/(metal.Ys*E-0.6*p); % [m] Circumferential Stress (Longitudinal Joints)
+% metal.t2 = d/2*p*metal.FoS/(metal.Ys*E-0.6*p); % [m] Circumferential Stress (Longitudinal Joints)
+metal.t2 = 150/1000/2*p*metal.FoS/(metal.Ys*E-0.6*p); % [m] Circumferential Stress (Longitudinal Joints)
 metal.t3 = d/2*p*metal.FoS/(2*metal.Ys*E+0.4*p); % [m] Longitudinal Stress (Circumferential Joints)
 metal.t4 = d/2*p*metal.FoS/(2*metal.Ys*E-0.2*p); % [m] Spherical Shells - Hemispherical Heads
 
