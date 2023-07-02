@@ -36,31 +36,17 @@ metal.t2 = d/2*p*metal.FoS/(metal.Ys*E+(metal.FoS-0.6)*p);          % [m] Circum
 
 metal.t3 = d/2*p*metal.FoS/(2*metal.Ys*E+(0.4+metal.FoS)*p);        % [m] Longitudinal Stress (Circumferential Joints) 
 
+%   ----------- user input ----------
+metal.tc = metal.t1;
+%   ----------- user input ----------
+
 metal.ts = d/2*p*metal.FoS/(2*metal.Ys*E+(metal.FoS-0.2)*p);        % [m] Spherical Shells - Hemispherical Heads
 
-metal.tf = d/2*sqrt(metal.C*p)/(sqrt(metal.Ys*E)+sqrt(metal.C*p));  % [m] Flat Heads
+metal.tf = (d-2*metal.tc)*sqrt(metal.C*p/E/metal.Ys);              % [m] Flat Heads
 
-%% Composition
-
-%   user input ----------
-metal.tc = metal.t1;
-metal.th = metal.ts;
-% -----------------------
-
-switch metal.tc
-    case metal.t1 
-        disp("Classic theory")
-    case metal.t2
-        disp("Circ Stress")
-    case metal.t3
-        disp("Long Stress")
-end
-switch metal.th 
-    case metal.ts
-        disp("Hemi Heads")
-    case metal.tf
-        disp("Flat Heads")
-end
+%   ----------- user input ----------
+metal.th = metal.tf;
+%   ----------- user input ----------
 
 %%  Volume + mass tank calculations
 
@@ -82,8 +68,25 @@ switch metal.th
 end
 
 %%  Printing Results 
+fprintf("-------------------------\n\n")
+switch metal.tc
+    case metal.t1 
+        disp("Classic theory")
+    case metal.t2
+        disp("Circ Stress")
+    case metal.t3
+        disp("Long Stress")
+end
+switch metal.th 
+    case metal.ts
+        disp("Hemi Heads")
+    case metal.tf
+        disp("Flat Heads")
+end
+
+fprintf("Lunghezza tot: %2.4f mm\n",metal.length*1000)
 fprintf("Spessore  cyl: %2.4f mm\n",metal.tc*1000)
 fprintf("Spessore head: %2.4f mm\n",metal.th*1000)
 fprintf("Peso      Tot: %2.4f Kg\n",metal.mass)
 fprintf("-------------------------\n\n")
-metal
+
